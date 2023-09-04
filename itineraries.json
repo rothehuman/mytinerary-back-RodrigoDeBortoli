@@ -1,0 +1,33 @@
+[
+    {
+        "title": "Title1",
+        "name": "User Name 1",
+        "photo_url": "https://cdn.icon-icons.com/icons2/2468/PNG/512/user_icon_149329.png",
+        "price": 5,
+        "duration": "10000 days",
+        "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+        "comments": ["comment", "comment"],
+        "city": "64e59650fbc0087b1b5740e2"
+    },
+    {
+        "title": "Title2",
+        "name": "User Name 2",
+        "photo_url": "https://cdn.icon-icons.com/icons2/2468/PNG/512/user_icon_149329.png",
+        "price": 5,
+        "duration": "10000 days",
+        "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+        "comments": ["comment", "comment"],
+        "city": "64e59650fbc0087b1b5740e2"
+    },
+    {
+        "title": "Title3",
+        "name": "User Name 3",
+        "photo_url": "https://cdn.icon-icons.com/icons2/2468/PNG/512/user_icon_149329.png",
+        "price": 5,
+        "duration": "10000 days",
+        "hashtag": ["#hashtag1", "#hashtag2", "#hashtag3"],
+        "comments": ["comment", "comment"],
+        "city": "64e59650fbc0087b1b5740e2"
+    }
+    
+]

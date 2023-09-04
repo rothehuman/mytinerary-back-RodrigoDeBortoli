@@ -1,45 +1,41 @@
-import City from "../models/City.js"
+import Itinerary from "../models/Itinerary.js"
 
 const controller = {
-    getCities: async (req, res)=>{
+    getItineraries: async (req, res)=>{
         let queries = {}
 
         if(req.query.name){
             queries.name = new RegExp(`^${req.query.name}`, 'i')
         }
-
-        if(req.query.country){
-            queries.country = req.query.country
-        }
         try {
-            const cities = await City.find(queries).populate('itineraries')
+            const itineraries = await Itinerary.find(queries).populate('city')
 
-            if (cities.length > 0) {
+            if (itineraries.length > 0) {
                 return res.status(200).json({
                     success: true,
-                    cities: cities
+                    itineraries: itineraries
                 })
             }
             return res.status(404).json({
                 success: false,
-                message: 'cities not fount'
+                message: 'itineraries not fount'
             })
             
         } catch (error) {
             return res.status(500).json({
                 success: false,
-                message: 'Error getting cities'
+                message: 'Error getting itineraries'
             })
         }
     },
-    getCityById: async (req, res)=>{
+    getItineraryById: async (req, res)=>{
         try {
-            const city = await City.findById(req.params.id).populate('itineraries')
+            const itinerary = await Itinerary.findById(req.params.id)
 
-            if (city) {
+            if (itinerary) {
                 return res.status(200).json({
                     success: true,
-                    cities: city
+                    itineraries: itinerary
                 })
             }
 
@@ -55,13 +51,13 @@ const controller = {
             })
         }
     },
-    createCity: async (req, res)=>{
+    createItinerary: async (req, res)=>{
         try {
-            const newCity = await City.create(req.body);
+            const newItinerary = await Itinerary.create(req.body);
             
             return res.status(201).json({
                 success: true,
-                message: 'City created'
+                message: 'Itinerary created'
             })            
         } catch (error) {
             return res.status(500).json({
@@ -70,9 +66,9 @@ const controller = {
             })
         }
     },
-    updateCity: async (req, res)=>{
+    updateItinerary: async (req, res)=>{
         try {
-            await City.updateOne({_id: req.params.id}, req.body)
+            await Itinerary.updateOne({_id: req.params.id}, req.body)
 
             return req.status(200).json({
                 success: true,
@@ -85,9 +81,9 @@ const controller = {
             })
         }
     },
-    deleteCity: async (req, res)=>{
+    deleteItinerary: async (req, res)=>{
         try {
-            await City.deleteOne({_id: req.params.id})
+            await Itinerary.deleteOne({_id: req.params.id})
 
             return res.status(200).json({
                 success: true,

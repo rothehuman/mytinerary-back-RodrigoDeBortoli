@@ -6,7 +6,7 @@ let citySchema = new Schema({
     name: { type:String,required:true },
     country: { type:String,required:true },
     url: { type:String,required:true },
-    /* create_by: { type:Types.ObjectId, ref: 'users'} */
+    itineraries: [{ type: Types.ObjectId, ref: 'itineraries'}],
     },{
     timestamps: true
     }
