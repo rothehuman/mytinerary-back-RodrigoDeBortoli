@@ -15,8 +15,16 @@ app.use(express.urlencoded({extended: false}));
 app.use(morgan('dev'));
 app.use(cors());
 
+app.use((req, res, next)=>{
+    // res.status(200).send('middleware')
+    next()
+})
+
 //req objeto solicitud
 //res objeto respuesta
 app.use('/api', indexRouter);
+
+// app.use(notFound);
+// app.use(errorHandler);
 
 app.listen(PORT, () => console.log('Server running on port: ' + PORT));
