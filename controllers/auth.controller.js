@@ -9,6 +9,7 @@ const controller = {
         try {
             req.body.verified_code = crypto.randomBytes(10).toString('hex');
             req.body.password = bcryptjs.hashSync(req.body.password, 10);
+            req.body.role = 0;
 
             const user = await User.create(req.body)
 
@@ -39,7 +40,7 @@ const controller = {
                     photo: user.photo
                 },
                 process.env.SECRET_TOKEN,
-                { expiresIn: '10h' }
+                { expiresIn: '60' }
             )
 
             user.password = null;

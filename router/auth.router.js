@@ -19,13 +19,17 @@ router.post('/signin',
     /* validator(validateSignup), */
     accountExistsSignin,
     accountHasBeenVerified,
-    passwordIsOk,
+    /* passwordIsOk, */
     signin)
 
 router.post('/google', googleSignin)
 
-router.post('/signout', passport.authenticate('jwt', { session: false }), signout)
+router.post('/signout',
+    passport.authenticate('jwt',{ session: false }),
+    signout)
 
-router.post('/token', passport.authenticate('jwt', { session: false }), token)
+router.post('/token',
+    passport.authenticate('jwt', { session: false }),
+    token)
 
 export default router;

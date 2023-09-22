@@ -10,6 +10,8 @@ export const passwordIsOk = (req, res, next) => {
 
     return res.status(400).json({
         success: false,
-        message: 'Credenciales incorrectas'
+        message: 'Credenciales incorrectas',
+        cont1: password_db,
+        cont2: password_form
     })
 }
